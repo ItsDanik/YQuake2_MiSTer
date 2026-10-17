@@ -1,0 +1,13 @@
+# Game data is copyrighted and never committed: data/ is for tests on the PC
+/data/
+*.pak
+
+# Build outputs
+/build/
+/dist/
+/build-*.log
+
+# The game and the mission packs are plain clones until our forks exist (CLAUDE.md)
+/yquake2/
+/xatrix/
+/rogue/
