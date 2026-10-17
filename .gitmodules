@@ -2,3 +2,15 @@
 	path = hybrid
 	url = https://github.com/ItsDanik/Hybrid_MiSTer.git
 	branch = main
+[submodule "yquake2"]
+	path = yquake2
+	url = https://github.com/ItsDanik/yquake2.git
+	branch = mister
+[submodule "xatrix"]
+	path = xatrix
+	url = https://github.com/ItsDanik/xatrix.git
+	branch = mister
+[submodule "rogue"]
+	path = rogue
+	url = https://github.com/ItsDanik/rogue.git
+	branch = mister

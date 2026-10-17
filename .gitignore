@@ -6,8 +6,3 @@
 /build/
 /dist/
 /build-*.log
-
-# The game and the mission packs are plain clones until our forks exist (CLAUDE.md)
-/yquake2/
-/xatrix/
-/rogue/
