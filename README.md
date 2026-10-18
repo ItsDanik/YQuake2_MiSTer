@@ -34,14 +34,16 @@ The game data goes into `/media/fat/games/dnk/YQuake2/`, next to the `game.so` f
 
 | Folder | Files |
 |---|---|
-| `baseq2/` | `pak0.pak`, `pak1.pak`, `pak2.pak`, and the folders `players/` and `video/` from the `baseq2` folder of your Quake II. A CD version needs the 3.20 patch for `pak1.pak` and `pak2.pak`. The demo has only `pak0.pak` and `players/`. |
+| `baseq2/` | **everything** in the `baseq2` folder of your Quake II, with its folders as they are, and leave nothing out (`pak0.pak`, `pak1.pak`, `pak2.pak`, `players/`, `video/` and the rest; files the port does not use do no harm). A CD version needs the 3.20 patch for `pak1.pak` and `pak2.pak`. The demo has only `pak0.pak` and `players/`. |
 | `baseq2/music/` | the soundtrack, optional: `02.ogg` to `11.ogg`, ripped from the CD. The GOG version's `music/` folder (`Track02.ogg` ...) goes next to `baseq2/` instead, as `games/dnk/YQuake2/music/`. |
-| `xatrix/` | *The Reckoning*, optional: `pak0.pak` and `video/` |
-| `rogue/` | *Ground Zero*, optional: `pak0.pak` and `video/` |
+| `xatrix/` | *The Reckoning*, optional: everything in its folder `xatrix` (`pak0.pak`, `video/`, ...) |
+| `rogue/` | *Ground Zero*, optional: everything in its folder `rogue` (`pak0.pak`, `video/`, ...) |
 
 Then run **danik_hybrid_ports** from the `Scripts` menu, if you have not done so before (see Requirements), and load the game from the `Other` menu, e.g. **dnk-Quake II**.
 
-The menu entry of Quake II starts the demo when the full game is not there; the mission packs need the full game. When a game's files are missing, the core says which files to copy where. Each game keeps its own OSD settings and button mappings. The core file itself (`_Other/dnk/dnk-YQuake2_*.rbf`, or from *Recent*) lists the games that are there to pick from; quitting a game then returns to the list. The game's log is in `/media/fat/logs/dnk/YQuake2/yquake2.log`. Settings and saved games are kept in the game's folder: `baseq2/config.cfg` and `baseq2/save/` (`xatrix/` and `rogue/` for the mission packs).
+The game data can go on a USB drive instead, into the same folders there (`/media/usb0/games/dnk/YQuake2/baseq2/` and so on): the game looks for it there first, and then keeps its settings and saved games there as well. Everything else, the `game.so` files among it, stays on the SD card.
+
+The menu entry of Quake II starts the demo when the full game is not there; the mission packs need the full game. When a game's files are missing, the core says which files to copy where. Each game keeps its own OSD settings and button mappings. The core file itself (`_Other/dnk/dnk-YQuake2_*.rbf`, or from *Recent*) lists the games that are there to pick from; quitting a game then returns to the list. The game's log is in `/media/fat/logs/dnk/YQuake2/yquake2.log`. Settings and saved games are kept in the game's folder (on the USB drive, if the game data is there): `baseq2/config.cfg` and `baseq2/save/` (`xatrix/` and `rogue/` for the mission packs).
 
 ## OSD options
 
@@ -53,7 +55,6 @@ The menu entry of Quake II starts the demo when the full game is not there; the 
 | CRT Options | for a 15kHz screen: *Horizontal Size*, *Horizontal Pos* and *Vertical Pos* fit the picture to it. The pixels stay as they are; HDMI is not affected. The size is for the game's picture: the core's own, with its messages, keeps its width. Not there with `forced_scandoubler=1`. *HUD (Top)* and *HUD (Bottom)*: at 320x240, how many lines the messages at the top and the status bar at the bottom keep from the edges of the screen, 0 to 24 (10 by default), so that a CRT's overscan does not hide them. 0 is the very edge, for HDMI. Greyed out at 320x200 |
 | Resolution | **320x200** (default) or **320x240**: the game's picture, switched at once. At 320x240 the view fills all 240 lines and the status bar is drawn over it at the *HUD* margin; it shows a little more and is a little slower |
 | Cheats | single player only. *God Mode*, *No Clipping* (fly through walls), *Invisible to Monsters* and *Infinite Ammo* stay on while they are on, through saved games and level changes, and are gone when turned off. Once each time they are selected: *Give All* (every weapon with full ammo, armour, the power shield, keys and items), *Quad Damage* and *Invulnerability* (one in the inventory, used like one picked up), *Next Level* (the level is left through its exit, as if you had reached it: the first exit that does not lead back to the level you came from) |
-| Menu OK, Menu Back | the gamepad button that confirms / goes back in the game's menus, whatever it does in the game. **MiSTer** (default) uses the OK/Back buttons of your MiSTer menu |
 
 ## Controls
 
@@ -90,9 +91,9 @@ The other keys are as in Quake II: the arrow keys move and turn, Tab is the inve
 | Select | field computer (help) |
 | Start | Menu |
 
-In the game's menus the d-pad and left stick move and *Menu OK* / *Menu Back* confirm and go back. Rebind the keyboard and gamepad in the game's *Options* menu; the game keeps your changes. L2 and R2 work on controllers with analog triggers, L3 on those whose stick clicks Linux reports as such (a DualSense does).
+In the game's menus the d-pad and left stick move, and the buttons that confirm and go back are the ones of your MiSTer menu, whatever they do in the game: its *Menu OK* / *Menu Back* if you set them in *Define joystick buttons*, else its A / B. A controller never set up in MiSTer confirms and goes back as on its console: Cross / Circle on PlayStation, A / B on Xbox and on Nintendo. Rebind the keyboard and gamepad in the game's *Options* menu; the game keeps your changes. L2 and R2 work on controllers with analog triggers, L3 on those whose stick clicks Linux reports as such (a DualSense does).
 
-Change the buttons in the OSD under *Define YQuake2 buttons*. *Menu OK* and *Menu Back* there are only needed for a button without a game function; MiSTer doesn't let you assign a button twice, so to confirm with a button that also has a game function, pick it in the OSD's Menu OK/Menu Back options instead.
+Change the buttons in the OSD under *Define YQuake2 buttons*. *Menu OK* and *Menu Back* there are only needed for a spare button without a game function. While the OSD is open, the game gets no input.
 
 ## Building
 

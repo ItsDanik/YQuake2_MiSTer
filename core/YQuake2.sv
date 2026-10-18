@@ -82,9 +82,8 @@ localparam CONF_STR = {
 	// Sound Volume / Music Volume (bits 10:7 and 14:11) go here if the game
 	// mixes them separately, then the game's own options from bit 24 up,
 	// followed by "-;". The first entry of an option is its default.
-	"O[19:16],Menu OK,MiSTer,A,B,X,Y,L,R,Select,Start;",
-	"O[23:20],Menu Back,MiSTer,A,B,X,Y,L,R,Select,Start;",
-	"-;",
+	// Bits 16..23 were Menu OK / Menu Back up to host version 13: unused, a
+	// saved setting may still have them set.
 	// read by the game every frame (MiSTer_GameHeight())
 	"O[24],Resolution,320x200,320x240;",
 	// Cheats, single player only (MiSTer_Cheats() in mister_port.c, applied
@@ -106,8 +105,8 @@ localparam CONF_STR = {
 	"-;",
 	// MiSTer's default map only knows the SNES-style pad. Main refuses to map a
 	// button twice, so Menu OK/Back here are for spare buttons without a game
-	// function and unmapped by default; the OSD Menu OK/Back options cover
-	// buttons that have one. J1 has the game's eight most important actions,
+	// function and unmapped by default; menus also confirm and go back with
+	// the MiSTer menu's own OK / Back (MH_MenuButtons()). J1 has the game's eight most important actions,
 	// the last one opens the game's menu; jn gives each of them a button of the
 	// default pad, Start for the menu. The game knows this list as buttons 0..9
 	// of the SDL joystick, the launcher repeats "jn" as MISTER_HYBRID_JN
@@ -213,6 +212,7 @@ hybrid_host host
 	.joy_l_analog_1(joy_l_analog_1),
 	.joy_r_analog_1(joy_r_analog_1),
 	.osd_status(status),
+	.osd_open(OSD_STATUS),
 	.ps2_key(ps2_key),
 	.ps2_mouse(ps2_mouse),
 	.ps2_mouse_ext(ps2_mouse_ext),
