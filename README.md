@@ -52,9 +52,11 @@ The menu entry of Quake II starts the demo when the full game is not there; the 
 | Aspect ratio, Scale, Scandoubler Fx, Stereo Mix | as in other cores |
 | FPS Counter | shows the pictures per second in the top left corner |
 | HDMI Only | **Yes** if no CRT is connected: resolutions of 640x400 and more are then progressive instead of interlaced, and the analog output is switched off while one is shown, so that a 15kHz screen can never get such a signal. Nothing changes at lower resolutions. Not needed with `forced_scandoubler=1` (VGA monitor); not there with `direct_video=1` |
-| CRT Options | for a 15kHz screen: *Horizontal Size*, *Horizontal Pos* and *Vertical Pos* fit the picture to it. The pixels stay as they are; HDMI is not affected. The size is for the game's picture: the core's own, with its messages, keeps its width. Not there with `forced_scandoubler=1`. *HUD (Top)* and *HUD (Bottom)*: at 320x240, how many lines the messages at the top and the status bar at the bottom keep from the edges of the screen, 0 to 24 (10 by default), so that a CRT's overscan does not hide them. 0 is the very edge, for HDMI. Greyed out at 320x200 |
+| CRT Options | for a 15kHz screen: *Horizontal Size*, *Horizontal Pos* and *Vertical Pos* fit the picture to it. The pixels stay as they are; HDMI is not affected. The size is for the game's picture: the core's own, with its messages, keeps its width. Not there with `forced_scandoubler=1`. *HUD (Bottom)*: at 320x240, how many lines the status bar sits above the bottom edge of the screen, 0 to 24 (0 by default, the very edge, for HDMI), so that a CRT's overscan does not hide it; greyed out at 320x200. *HUD (Top)* is always greyed out: the messages at the top stay at the edge, as in Quake II |
 | Resolution | **320x200** (default) or **320x240**: the game's picture, switched at once. At 320x240 the view fills all 240 lines and the status bar is drawn over it at the *HUD* margin; it shows a little more and is a little slower |
+| Rumble | the gamepad's rumble, Quake II's own (shots, hits, falls, explosions, doors and platforms nearby): **On** (default), **Strong** or **Off**. It takes the place of the game's *rumble intensity* |
 | Cheats | single player only. *God Mode*, *No Clipping* (fly through walls), *Invisible to Monsters* and *Infinite Ammo* stay on while they are on, through saved games and level changes, and are gone when turned off. Once each time they are selected: *Give All* (every weapon with full ammo, armour, the power shield, keys and items), *Quad Damage* and *Invulnerability* (one in the inventory, used like one picked up), *Next Level* (the level is left through its exit, as if you had reached it: the first exit that does not lead back to the level you came from) |
+| Save Diagnostic Report | the last line: see [If something is wrong](#if-something-is-wrong) |
 
 ## Controls
 
@@ -93,7 +95,13 @@ The other keys are as in Quake II: the arrow keys move and turn, Tab is the inve
 
 In the game's menus the d-pad and left stick move, and the buttons that confirm and go back are the ones of your MiSTer menu, whatever they do in the game: its *Menu OK* / *Menu Back* if you set them in *Define joystick buttons*, else its A / B. A controller never set up in MiSTer confirms and goes back as on its console: Cross / Circle on PlayStation, A / B on Xbox and on Nintendo. Rebind the keyboard and gamepad in the game's *Options* menu; the game keeps your changes. L2 and R2 work on controllers with analog triggers, L3 on those whose stick clicks Linux reports as such (a DualSense does).
 
-Change the buttons in the OSD under *Define YQuake2 buttons*. *Menu OK* and *Menu Back* there are only needed for a spare button without a game function. While the OSD is open, the game gets no input.
+Change the buttons in the OSD under *Define YQuake2 buttons*. *Menu OK* and *Menu Back* there are only needed for a spare button without a game function. While the OSD is open, the game gets no input. Controllers that can rumble do (the OSD's *Rumble*).
+
+## If something is wrong
+
+If the game stutters, the sound breaks up or something else is wrong, open the OSD while it happens and pick **Save Diagnostic Report**, the last line of the menu. The game keeps running; MiSTer's info box says the report is saved in `games/dnk/diagnostics/` on the SD card. Send that file (`YQuake2_<date>_<time>.zip`) with a few words on what went wrong.
+
+The report has the setup (versions, the video and audio lines of `MiSTer.ini`, the OSD settings), how the last 60 seconds went, the game's log and a screenshot. Nothing else: no network settings, addresses, saved games or lists of your files.
 
 ## Building
 
@@ -117,7 +125,7 @@ The toolchain image (Debian bullseye, glibc 2.31 to match the MiSTer) is built f
 | `core/` | FPGA core, based on [Template_MiSTer](https://github.com/MiSTer-devel/Template_MiSTer): `YQuake2.sv` (OSD and button names) around `hybrid/rtl/hybrid_host.sv` |
 | `yquake2/` | submodule: the game, [our fork of Yamagi Quake II](https://github.com/ItsDanik/yquake2), branch `mister`, with the MiSTer changes |
 | `xatrix/`, `rogue/` | submodules: the game code of the mission packs, our forks of [xatrix](https://github.com/ItsDanik/xatrix) and [rogue](https://github.com/ItsDanik/rogue), branch `mister`, with the cheats of the OSD |
-| `package/` | files shipped in the release next to the binary (`danik_hybrid_launch.sh`, README), and `games.txt`: the games and their menu entries |
+| `package/` | files shipped in the release next to the binary (`danik_hybrid_launch.sh`, README), `games.txt`: the games and their menu entries, and `logos/`: each game's logo, shown at its start (440x200) |
 | `releases/` | release packages |
 
 ### Development notes
