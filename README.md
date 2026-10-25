@@ -36,7 +36,7 @@ With `update_all` (Downloader 2.4 or newer, which update_all keeps up to date):
    | `baseq2/music/` | the soundtrack, optional: `02.ogg` to `11.ogg`, ripped from the CD. The GOG version's `music/` folder (`Track02.ogg` ...) goes next to `baseq2/` instead, as `games/dnk/YQuake2/music/`. |
    | `xatrix/` | *The Reckoning*, optional: everything in its folder `xatrix` (`pak0.pak`, `video/`, ...) |
    | `rogue/` | *Ground Zero*, optional: everything in its folder `rogue` (`pak0.pak`, `video/`, ...) |
-5. Load the game from the `Other` menu, e.g. **dnk-Quake II**.
+5. Load the game from the `Other` menu, e.g. **dnk-Quake II**, or from the `Hybrid Ports` folder if you moved the games there in the launcher.
 
 > [!NOTE]
 > The game data can go on a USB drive instead, into the same folders there (`/media/usb0/games/dnk/YQuake2/baseq2/` and so on): the game looks for it there first, and then keeps its settings and saved games there as well. Everything else, the `game.so` files among it, stays on the SD card.
