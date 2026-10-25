@@ -1,0 +1,6 @@
+# The games of package/games.txt for dnkLauncher, the frontend (hybrid/docs/dnklauncher.md),
+# a line each: <id>|<year>|<developer>|<description>. The description is shown on the
+# game's Details page, at most 4 lines there (about 340 characters).
+Q2|1997|id Software|Humanity strikes back at the Strogg on their own world. A marine whose pod lands off target fights alone through their bases, factories and prisons, with objectives across linked maps, on the way to the Makron. The railgun, the BFG10K and a darker world on a new engine.
+RK|1998|Xatrix Entertainment|The Reckoning, the first mission pack for Quake II: a marine of an elite unit fights his way to the Strogg's moon to stop their fleet. New weapons such as the Ion Ripper and the Phalanx, and new enemies.
+GZ|1998|Rogue Entertainment|Ground Zero, the second mission pack: a marine stranded on Stroggos must shut down the Gravity Well that holds the human fleet in orbit. The Chainfist, the plasma beam, tesla mines and smarter enemies.
