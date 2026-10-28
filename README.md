@@ -68,11 +68,12 @@ Run it from the `Scripts` menu again whenever you want to change something. Its 
 |---|---|
 | Aspect ratio, Scale, Scandoubler Fx, Stereo Mix | as in other cores |
 | FPS Counter | shows the pictures per second in the top left corner |
-| HDMI Only | **Yes** if no CRT is connected: resolutions of 640x400 and more are then progressive instead of interlaced, and the analog output is switched off while one is shown, so that a 15kHz screen can never get such a signal. Nothing changes at lower resolutions. Not needed with `forced_scandoubler=1` (VGA monitor); not there with `direct_video=1` |
+| HDMI Only | **Yes** if no CRT is connected: resolutions of 640x400 and more are then progressive instead of interlaced, and so is the core's own screen before the game, which moves at 60 pictures a second for a CRT and shows fine lines on HDMI without it. The analog output is switched off while one is shown, so that a 15kHz screen can never get such a signal. YQuake2 has no such resolution, so nothing changes in the game. Not needed with `forced_scandoubler=1` (VGA monitor); not there with `direct_video=1` |
 | CRT Options | **Horizontal Size**: the picture's width<br>**Horizontal Pos**: moves it left or right<br>**Vertical Pos**: moves it up or down<br>**HUD (Top)**: always greyed out, the messages at the top stay at the edge, as in Quake II<br>**HUD (Bottom)**: lifts the status bar 0 to 24 lines off the bottom edge (default 0), at 320x240<br><br>For a 15kHz screen: fits the picture to it and keeps the status bar out of the overscan. HDMI is not affected; not there with `forced_scandoubler=1` |
 | Resolution | **320x200**: the fastest (default)<br>**320x240**: the view fills the whole screen<br><br>At 320x240 the status bar is drawn over the view at the *HUD (Bottom)* margin; it shows a little more and is a little slower. Applies at once |
 | Rumble | **On**: Quake II's own rumble (default)<br>**Strong**: twice as strong<br>**Off**: none<br><br>Shots, hits, falls, explosions, doors and platforms nearby. It takes the place of the game's *rumble intensity* |
 | Cheats | **God Mode**: nothing hurts you<br>**No Clipping**: fly through walls<br>**Invisible to Monsters**: they do not see you<br>**Infinite Ammo**: ammo never runs out<br>**Give All**: every weapon with full ammo, armour, the power shield, keys and items<br>**Quad Damage**: one in the inventory<br>**Invulnerability**: one in the inventory<br>**Next Level**: completes the level<br><br>Single player only. The first four stay on through saved games and level changes until turned off |
+| Reset | starts the game again from its beginning, as the USER button does |
 | Save Diagnostic Report | the last line: see [If something is wrong](#if-something-is-wrong) |
 
 ## Controls
